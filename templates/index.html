@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <h1>heart attack prediction</h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            
+            <input type="text" name="cp" placeholder="cp" required="required">
+            <br>
+            <input type="text" name="thalachh" placeholder="thalachh" required="required">
+            <br>
+            <input type="text" name="exng" placeholder="exng" required="required">
+            <br>
+            <input type="text" name="oldpeak" placeholder="oldpeak" required="required">
+            <br>
+            <input type="text" name="caa" placeholder="caa" required="required">
+            <br>
+
+
+            <button type="submit" class="btn1">prediction</button>
+<br>
+        </form>
+
+
+        <h2>
+            HEART ATTACK prediction is {{result}}
+         </h2>
+        
+    </div>
+</body>
+
+
+</html>
