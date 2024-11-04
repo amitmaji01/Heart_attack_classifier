@@ -3,36 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Heart Attack Prediction</title>
+    <style>
+        /* CSS for navigation bar */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4A90E2;
+            padding: 1em 2em;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav .menu a:hover {
+            color: #FF6F61;
+        }
+
+        .hero {
+            background: url('https://www.analyticsvidhya.com/wp-content/uploads/2022/02/heart-attack-prediction.jpg') no-repeat center center/cover;
+            height: 93vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4A90E2(255, 255, 255);
+            text-align: center;
+            padding: 0 2em;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .login {
+    margin-top: -70px;
+    text-align: center; /* Center-align content within .login */
+}
+
+.login form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Ensure form content is aligned left within its container */
+}
+
+.login input[type="text"] {
+    width: calc(100% - 22px); /* Adjust width to accommodate padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.login .cta-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF6F61;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.login .cta-button:hover {
+    background-color: #E14B3B;
+}
+
+
+
+
+        .about-section {
+            padding: 4em 2em;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+            color: #555;
+        }
+
+        .about-section .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2em;
+        }
+
+        .feature {
+            background-color: #FFF;
+            padding: 2em;
+            margin: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .feature h3 {
+            color: #4A90E2;
+            margin-bottom: 1em;
+        }
+
+        .feature p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            Heart Attack Predictor
+        </div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div>
+            <h1>Welcome to the Heart Attack Predictor</h1>
+            <p>Our AI-based tool helps predict the risk of heart attacks using advanced machine learning techniques.</p>
+        </div>
+    </div>
     <div class="login">
-        <h1>heart attack prediction</h1>
+        <h1>Heart Attack Prediction</h1>
         <form action="{{ url_for('predict_datapoint')}}" method="post">
-            
-            <input type="text" name="cp" placeholder="cp" required="required">
-            <br>
-            <input type="text" name="thalachh" placeholder="thalachh" required="required">
-            <br>
-            <input type="text" name="exng" placeholder="exng" required="required">
-            <br>
-            <input type="text" name="oldpeak" placeholder="oldpeak" required="required">
-            <br>
-            <input type="text" name="caa" placeholder="caa" required="required">
-            <br>
-
-
-            <button type="submit" class="btn1">prediction</button>
-<br>
+            <input type="text" name="cp" placeholder="cp" required="required"><br>
+            <input type="text" name="thalachh" placeholder="thalachh" required="required"><br>
+            <input type="text" name="exng" placeholder="exng" required="required"><br>
+            <input type="text" name="oldpeak" placeholder="oldpeak" required="required"><br>
+            <input type="text" name="caa" placeholder="caa" required="required"><br>
+            <button type="submit" class="cta-button">Prediction</button><br>
         </form>
-
-
         <h2>
             HEART ATTACK prediction is {{result}}
-         </h2>
-        
+        </h2>
     </div>
+
+    <div class="about-section">
+        <h2>About Us</h2>
+        <p>We are a dedicated team of researchers and developers focused on leveraging technology to improve healthcare. Our heart attack predictor is designed to provide early warnings and help in timely intervention.</p>
+        <div class="features">
+            <div class="feature">
+                <h3>Advanced AI</h3>
+                <p>Utilizes the latest in machine learning algorithms to provide accurate predictions.</p>
+            </div>
+            <div class="feature">
+                <h3>User-Friendly</h3>
+                <p>Easy-to-use interface that allows anyone to use the predictor with ease.</p>
+            </div>
+            <div class="feature">
+                <h3>Reliable Data</h3>
+                <p>Based on extensive research and validated datasets to ensure reliability.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2024 Heart Attack Predictor. All rights reserved.
+    </footer>
 </body>
-
-
 </html>
